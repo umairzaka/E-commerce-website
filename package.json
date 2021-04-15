@@ -1,0 +1,28 @@
+{
+  "name": "amazona",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon --watch backend --exec node --experimental-modules backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/umairzaka/amazon-clone.git"
+  },
+  "author": "umair Zaka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/umairzaka/amazon-clone/issues"
+  },
+  "homepage": "https://github.com/umairzaka/amazon-clone#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.3"
+  },
+  "devDependencies": {
+    "eslint": "^7.24.0"
+  }
+}
