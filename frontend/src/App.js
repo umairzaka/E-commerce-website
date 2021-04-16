@@ -1,4 +1,4 @@
-import react from 'react'
+// import react from 'react'
 
 import { BrowserRouter, Route } from "react-router-dom";
 import HomeScreen from './screens/HomeScreen';
