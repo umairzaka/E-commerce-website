@@ -71,6 +71,9 @@ ul{
 li{
   margin-top: 1rem;
 }
+input,
+textarea,
+select,
 button{
   padding: 1rem;
   border-radius: 0.5rem;
@@ -79,8 +82,11 @@ button{
   font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f8f8f8;
-  cursor: pointer;
+ 
+}
+button{
+   background-color: #f8f8f8;
+   cursor: pointer;
 }
 button.primary{
   background-color: #f0c040;
@@ -119,6 +125,10 @@ img.medium {
   width: 100%;
 }
 img.large{
+  width: 100%;
+}
+img.img-sml{
+  max-width: 5rem;
   width: 100%;
 }
 /* Card */
@@ -164,4 +174,13 @@ img.large{
   padding: 1rem;
   border-radius: 0.5rem;
   color: #404040;
+}
+.badge{
+
+  font-size: 1.4rem;
+  padding: 0.5rem;
+  background-color: rgb(204, 63, 63);
+  border-radius: 20%;
+  margin-left: 0.5rem;
+
 }
