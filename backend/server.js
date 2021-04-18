@@ -1,15 +1,33 @@
 import express from 'express'
+import mongoose from 'mongoose'
 import Data from './Data.js'
+import userRouter from './Routers/UserRouters.js';
 
 const app = express();
 const port= process.env.PORT || 9000;
+
+mongoose.connect('mongodb://localhost/amazona',{
+    useNewUrlParser:true,
+    useUnifiedTopology:true,
+    useCreateIndex:true,
+})
+
+    const db = mongoose.connection;
+
+    db.once('open' , ()=> {
+        console.log('DB connected')
+    })
+
 
 app.get('/' , (req,res)=> res.status(200).send('server is ready'));
 
 app.get('/api/products' ,(req,res)=>
  res.status(200).send(Data.products)
  )
-
+app.use('/api/users' ,userRouter);
+app.use((err,req,res,next) => {
+    res.status(500).send({message: err.message})
+})
 app.get('/api/products/:id' ,(req,res)=> {
     const product = Data.products.find( (x) => 
         x._id === req.params.id
