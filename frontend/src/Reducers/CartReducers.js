@@ -18,7 +18,7 @@ export const cardReducer = (state = {cartItem : []} ,action)=> {
         case REMOVE_CART_ITEM:
             return {
                 ...state,
-                cartItem: state.cartItem.filter((x) => x.product != action.payload),
+                cartItem: state.cartItem.filter((x) => x.product !== action.payload),
             }
         default:
             return state

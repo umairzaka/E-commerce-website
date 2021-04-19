@@ -18,14 +18,14 @@ function CartScreen(props) {
         if (productId) {
             dispatch(addToCard(productId, qty))
         }
-     }, [])
+     }, [dispatch,productId,qty])
 
      const removeFromCartHandler = (id) => {
         dispatch(removeToCard(id))
      }
 
      const checkOutHandler = () => {
-        props.history.push('/signIn?redirect=shipping')
+        props.history.push('/signin?redirect=shipping')
      }
 
     return (
@@ -38,11 +38,12 @@ function CartScreen(props) {
                     </div>
                     <div>
                         {
-                        cartItem != 0  ? (
-                             <Link  to={'/'}> <h2> <i className="fa fa-arrow-left" aria-hidden="true"></i> Shoping More</h2></Link> 
+                        cartItem.length === 0  ? (
+                            <h1> <i className="fa fa-arrow-left" aria-hidden="true"></i></h1>
                         ):
                          (
-                             <h1> <i className="fa fa-arrow-left" aria-hidden="true"></i></h1>
+                             
+                            <Link  to={'/'}> <h2> <i className="fa fa-arrow-left" aria-hidden="true"></i> Shoping More</h2></Link> 
                          )
                         } 
                         
@@ -72,7 +73,7 @@ function CartScreen(props) {
                                                 onChange={e => dispatch(addToCard(item.product,Number(e.target.value)))}
                                                 >
                                             {
-                                               [...Array(item   .countInStock).keys()].map(
+                                               [...Array(item.countInStock).keys()].map(
                                                    (x)=> (
                                                        <option key={x+1} value={x+1}>{x+1}</option>
                                                    )
