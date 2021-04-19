@@ -160,7 +160,9 @@ img.img-sml{
 }
 
 /* alert */
-
+.loading{
+  display: block !important;
+}
 .success{
   color: green;
 
@@ -190,7 +192,7 @@ img.img-sml{
 .form{
   
   max-width: 60rem;
-  margin: 10rem auto;
+  margin: 5rem auto;
 }
 .form > div{
   display: flex;

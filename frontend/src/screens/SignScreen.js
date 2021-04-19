@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {Link} from 'react-router-dom'
 import { signin } from '../actions/UserActions'
+import Loading from '../components/Loading'
+import MessageBox from '../components/MessageBox'
 
 
 function SignScreen(props) {
@@ -10,7 +12,7 @@ function SignScreen(props) {
         const [password, setPassword] = useState('')
         const dispatch = useDispatch();
         const userSignin = useSelector(state => state.userSignin)
-         const {userInfo} = userSignin
+        const {userInfo, loading, error} = userSignin
 
             // redirect script
 
@@ -33,6 +35,8 @@ function SignScreen(props) {
                 <div>
                     Sign In
                 </div>
+                {loading && <Loading></Loading>}
+                {error && <MessageBox variant="danger" >{error}</MessageBox>}
                 <div>
                     <label htmlFor="email">Email Address</label>
                     <input type="email" name="email" value={email} id='email' onChange={e => setEmail(e.target.value)} required />
@@ -42,14 +46,14 @@ function SignScreen(props) {
                     <input type="password" name="password" value={password} id='password' onChange={e => setPassword(e.target.value)} required />
                 </div>
                 <div>
-                    <labe/>
+                    <label/>
                     <button type="submit" className='primary block'>Sign In </button>
                 </div>
 
                  <div>
                      <label />
-                     <p>Create New Account {' '}
-                      <Link to='/registration'>Register</Link>
+                     <p>New Customer ?  {' '}
+                      <Link to={`/register?redirect=${redirect}`}>Create New Account</Link>
                      </p>
                  </div>   
 
