@@ -7,6 +7,7 @@ import CartScreen from "./screens/CartScreen";
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
 import RegisterScreen from "./screens/RegisterScreen";
+import ShippingScreen from "./screens/ShippingScreen";
 import SignScreen from "./screens/SignScreen";
 
 
@@ -64,6 +65,7 @@ function App() {
           <Route path='/products/:id' component={ProductScreen}/>
             <Route path='/signin' component={SignScreen}/>
             <Route path='/register' component={RegisterScreen}/>
+            <Route path='/shipping' component={ShippingScreen}></Route>
            <Route path='/' component={HomeScreen} exact/>
             
         
