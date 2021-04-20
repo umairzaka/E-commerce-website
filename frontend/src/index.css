@@ -202,7 +202,7 @@ img.img-sml{
 }
 .form label{
   margin: 1rem 0 ;
-  display: block;
+  /* display: block; */
 }
 
 /* dropdown */

@@ -9,14 +9,14 @@ function ShippingScreen(props) {
      const userSignin = useSelector(state => state.userSignin)
      const {userInfo} = userSignin
 
-    //  const cart = useSelector((state) => state.cart);
-    //  const { shippingAddress } = cart;
+     const cart = useSelector((state) => state.cart);
+     const { shippingAddress } = cart;
 
-     const [fullName, setFullName] = useState('')
-     const [address, setAddress] = useState('')
-     const [city , setCity] = useState('')
-     const [postalCode, setPostalCode] = useState('')
-     const [country ,setCountry] = useState('')
+     const [fullName, setFullName] = useState(shippingAddress.fullName)
+     const [address, setAddress] = useState(shippingAddress.address)
+     const [city , setCity] = useState(shippingAddress.city)
+     const [postalCode, setPostalCode] = useState(shippingAddress.postalCode)
+     const [country ,setCountry] = useState(shippingAddress.country)
      const dispatch = useDispatch();
     
 

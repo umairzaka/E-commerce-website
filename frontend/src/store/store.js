@@ -13,6 +13,7 @@ const initialState = {
     cart:{
         cartItem : localStorage.getItem('cartItem') ? JSON.parse(localStorage.getItem('cartItem')) : [],
         shippingAddress: localStorage.getItem('shippingAddress') ? JSON.parse(localStorage.getItem('shippingAddress')) : {},
+        paymentMethod : 'paypal'
     }
 
 };
