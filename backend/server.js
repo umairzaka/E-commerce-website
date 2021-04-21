@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 import dotenv from 'dotenv';
 import productRouter from './Routers/ProductRouter.js';
 import userRouter from './Routers/UserRouters.js';
+import orderRouter from './Routers/OrderRouter.js';
 
 
 dotenv.config();
@@ -35,6 +36,7 @@ app.get('/' , (req,res)=> res.status(200).send('server is ready'));
 
 app.use('/api/users' ,userRouter);
 app.use('/api/products' ,productRouter);
+app.use('/api/orders', orderRouter)
 app.use((err,req,res,next) => {
     res.status(500).send({message: err.message})
 })

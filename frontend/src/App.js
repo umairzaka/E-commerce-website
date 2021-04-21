@@ -3,6 +3,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Link, Route } from "react-router-dom";
 import { signOut } from "./actions/UserActions";
+import OrderDetailScreen from "./screens/OrderDetailScreen";
 import CartScreen from "./screens/CartScreen";
 import HomeScreen from './screens/HomeScreen';
 import PaymentMethodScreen from "./screens/PaymentMethodScreen";
@@ -63,16 +64,15 @@ function App() {
         </div>
       </header>
       <main>
-        <Route path='/cart/:id?' component={CartScreen}/>
+          <Route path='/cart/:id?' component={CartScreen}/>
           <Route path='/products/:id' component={ProductScreen}/>
-            <Route path='/signin' component={SignScreen}/>
-            <Route path='/register' component={RegisterScreen}/>
-            <Route path='/shipping' component={ShippingScreen}></Route>
-            <Route path='/payment' component={PaymentMethodScreen}></Route>
-            <Route path='/placeorder' component={PlaceOrderScreen}></Route>  
-           <Route path='/' component={HomeScreen} exact/>
-            
-        
+          <Route path='/signin' component={SignScreen}/>
+          <Route path='/register' component={RegisterScreen}/>
+          <Route path='/shipping' component={ShippingScreen}></Route>
+          <Route path='/payment' component={PaymentMethodScreen}></Route>
+          <Route path='/placeorder' component={PlaceOrderScreen}></Route>
+          <Route path='/order/:id' component={OrderDetailScreen}></Route> 
+          <Route path='/' component={HomeScreen} exact/>    
       </main>
       <footer className="row center">All right reserved</footer>
     </div>
