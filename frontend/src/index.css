@@ -171,11 +171,16 @@ img.img-sml{
   color: rgb(187, 44, 44);
 }
 .error-variant{
-  border: 0.1rem rgb(209, 208, 208) solid;
-  background-color: rgb(233, 136, 136);
+  border: 0.2rem rgb(253, 99, 99) solid;
+  background-color: rgb(250, 181, 181);
   padding: 1rem;
   border-radius: 0.5rem;
   color: #404040;
+}
+
+.alert-success {
+  color: #20a020;
+  background-color: #eeffe0;
 }
 .badge{
 
