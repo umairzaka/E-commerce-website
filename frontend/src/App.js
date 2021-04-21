@@ -12,6 +12,7 @@ import ProductScreen from './screens/ProductScreen';
 import RegisterScreen from "./screens/RegisterScreen";
 import ShippingScreen from "./screens/ShippingScreen";
 import SignScreen from "./screens/SignScreen";
+import OrderHistoryScreen from "./screens/OrderHistoryScreen";
 
 
 
@@ -52,7 +53,12 @@ function App() {
               <div className='dropdown'>
                 <Link to='#'>{userInfo.name} <i className='fa fa-caret-down'></i></Link>
                   <ul className='dropdown-content'>
+                    <li>
+                      <Link to='/orderhistory'>Order History</Link>
+                    </li>
+                     <li>
                       <Link to='#signout' onClick={signoutHandler}>Sign Out</Link>
+                    </li>
                   </ul>
               </div>
            
@@ -71,7 +77,8 @@ function App() {
           <Route path='/shipping' component={ShippingScreen}></Route>
           <Route path='/payment' component={PaymentMethodScreen}></Route>
           <Route path='/placeorder' component={PlaceOrderScreen}></Route>
-          <Route path='/order/:id' component={OrderDetailScreen}></Route> 
+          <Route path='/order/:id' component={OrderDetailScreen}></Route>
+          <Route path='/orderhistory' component={OrderHistoryScreen}></Route> 
           <Route path='/' component={HomeScreen} exact/>    
       </main>
       <footer className="row center">All right reserved</footer>
