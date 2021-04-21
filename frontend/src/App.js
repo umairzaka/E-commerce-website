@@ -13,6 +13,7 @@ import RegisterScreen from "./screens/RegisterScreen";
 import ShippingScreen from "./screens/ShippingScreen";
 import SignScreen from "./screens/SignScreen";
 import OrderHistoryScreen from "./screens/OrderHistoryScreen";
+import ProfileScreen from "./screens/ProfileScreen";
 
 
 
@@ -56,6 +57,9 @@ function App() {
                     <li>
                       <Link to='/orderhistory'>Order History</Link>
                     </li>
+                    <li>
+                      <Link to='/Profile'>Mine Pofile</Link>
+                    </li>
                      <li>
                       <Link to='#signout' onClick={signoutHandler}>Sign Out</Link>
                     </li>
@@ -79,6 +83,7 @@ function App() {
           <Route path='/placeorder' component={PlaceOrderScreen}></Route>
           <Route path='/order/:id' component={OrderDetailScreen}></Route>
           <Route path='/orderhistory' component={OrderHistoryScreen}></Route> 
+          <Route path='/profile' component={ProfileScreen}></Route> 
           <Route path='/' component={HomeScreen} exact/>    
       </main>
       <footer className="row center">All right reserved</footer>
