@@ -163,22 +163,32 @@ img.img-sml{
 }
 
 /* alert */
-.loading{
+.loading {
   display: block !important;
 }
-.success{
-  color: green;
 
+.success {
+  color: #20a020;
 }
-.error{
-  color: rgb(187, 44, 44);
+
+.danger {
+  color: #a02020;
 }
-.error-variant{
-  border: 0.2rem rgb(253, 99, 99) solid;
-  background-color: rgb(250, 181, 181);
+
+.alert {
   padding: 1rem;
+  border: 0.1rem solid transparent;
   border-radius: 0.5rem;
-  color: #404040;
+}
+
+.alert-info {
+  color: #2020a0;
+  background-color: #e0e0ff;
+}
+
+.alert-danger {
+  color: #a02020;
+  background-color: #ffe0e0;
 }
 
 .alert-success {

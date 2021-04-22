@@ -29,7 +29,7 @@ function ProductScreen(props) {
 
             {
                  loading ? ( <Loading></Loading> )
-                 : error ? ( <MessageBox>{error}</MessageBox> )
+                 : error ? ( <MessageBox variant="danger">{error}</MessageBox> )
                  : 
                  (
                     <div className='row top'>
