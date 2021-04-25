@@ -5,7 +5,8 @@ import { isAuth } from '../utils.js';
 
 const orderRouter = express.Router();
 
-orderRouter.get(
+
+orderRouter.get(  // for spacific user own order
   '/mine',
   isAuth,
   expressAsyncHandler(async (req, res) => {
