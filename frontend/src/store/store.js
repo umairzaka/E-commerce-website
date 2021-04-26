@@ -21,7 +21,6 @@ const initialState = {
 const reducer = combineReducers({
     productList : productListReducer,
     productDetails: productDetailsReducer,
-    productDelete: productDeleteReducer,
     cart : cardReducer, 
     userSignin: userReducers,
     userRegistration: registrationReducers,
@@ -33,6 +32,7 @@ const reducer = combineReducers({
     userUpdateProfile: userUpdateProfileReducer,
     productCreate: productCreateReducer,
     productUpdate: productUpdateReducer,
+    productDelete: productDeleteReducer,
    
 })
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose ;

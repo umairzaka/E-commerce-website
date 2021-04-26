@@ -77,7 +77,7 @@ productRouter.put(
 
 
 
-productRouter.delete(  // detele product admin funcationality
+productRouter.delete( // delete prodoct functionality 
   '/:id',
   isAuth,
   isAdmin,

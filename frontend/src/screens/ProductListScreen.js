@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createProduct, deleteProduct, listProducts} from '../actions/ProductsAction';
 import Loading from '../components/Loading';
 import MessageBox from '../components/MessageBox';
-import { PRODUCT_CREATE_RESET } from '../constants/productConstants';
-// import { PRODUCT_DELETE_RESET } from '../constants/productConstants';
+import { PRODUCT_CREATE_RESET, PRODUCT_DELETE_RESET } from '../constants/productConstants';
 
 function ProductListScreen(props) {
    const productList = useSelector((state) => state.productList);
@@ -23,8 +22,9 @@ function ProductListScreen(props) {
   const {
     loading: loadingDelete,
     error: errorDelete,
-    // success: successDelete,
+    success: successDelete,
   } = productDelete;
+
 
    
 
@@ -39,18 +39,19 @@ function ProductListScreen(props) {
       props.history.push(`/product/${createdProduct._id}/edit`);
     } 
 
-    // if (successDelete) {
-    //   dispatch({ type: PRODUCT_DELETE_RESET });
-    // }
-
-    dispatch(listProducts());
-  }, [createdProduct, dispatch, props.history, successCreate]);
-
- const deleteHandler = (product) => {
-    if (window.confirm('Are you sure to delete?')) {
-      dispatch(deleteProduct(product._id));
+     if (successDelete) {
+      dispatch({ type: PRODUCT_DELETE_RESET });
     }
+    dispatch(listProducts());
+  }, [createdProduct, dispatch, props.history, successCreate,successDelete]);
+
+  
+  const deleteHandler = (product) => {
+   if (window.confirm('Are your sure want to delete this product')) {
+     dispatch(deleteProduct(product._id));
+   }   
   };
+
   const createHandler = () => {
     dispatch(createProduct());
   };
@@ -106,7 +107,7 @@ function ProductListScreen(props) {
                   <button
                     type="button"
                     className="small"
-                    onClick={() => deleteHandler(product._id)}
+                    onClick={() => deleteHandler(product)}
                   >
                     Delete
                   </button>
