@@ -18,6 +18,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import AdminRoute from "./components/AdminRoute";
 import ProductListScreen from "./screens/ProductListScreen";
 import ProductEditScreen from "./screens/ProductEditScreen";
+import OrderlistScreen from "./screens/OrderlistScreen";
 
 
 
@@ -111,6 +112,7 @@ function App() {
           <PrivateRoute path='/profile' component={ProfileScreen}></PrivateRoute> 
           <AdminRoute path='/productlist' component={ProductListScreen}></AdminRoute>
           <AdminRoute path='/product/:id/edit' component={ProductEditScreen}></AdminRoute>
+          <AdminRoute path='/orderlist' component={OrderlistScreen}></AdminRoute>
           <Route path='/' component={HomeScreen} exact/>    
       </main>
       <footer className="row center">All right reserved</footer>
