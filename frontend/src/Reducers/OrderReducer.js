@@ -63,7 +63,7 @@ export const orderMineListReducer = (state = { orders: [] }, action) => {
 // order list for admin Query
 
 
-export const orderlistReducer = (state= {}, action) => {
+export const orderlistReducer = (state= {orders : []}, action) => {
   switch (action.type) {
     case ORDER_LIST_REQUEST:
       return {loading: true}
