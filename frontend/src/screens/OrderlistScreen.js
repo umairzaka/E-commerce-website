@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { listOrders } from '../actions/OrderAction';
+import { deleteOrder, listOrders } from '../actions/OrderAction';
 import Loading from '../components/Loading';
 import MessageBox from '../components/MessageBox';
+import { ORDER_LIST_DELETE_RESET } from '../constants/orderConstants';
 
 function OrderlistScreen(props) {
 
@@ -11,16 +12,26 @@ function OrderlistScreen(props) {
     const orderList = useSelector(state => state.orderList)
     const {loading , error , orders} = orderList
 
+    const orderDelete = useSelector(state => state.orderDelete)
+    const {loading : loadingDelete, error: errorDelete, success: successDelete} = orderDelete
+
     useEffect(() => {
+       if (successDelete) {
+         dispatch({type:ORDER_LIST_DELETE_RESET})
+       }
       dispatch(listOrders())
-    }, [dispatch])
+    }, [dispatch, successDelete])
 
      const deleteHandler = (order) => {
-    // TODO: delete handler
-  };
+       if (window.confirm('Are you sure to delete?')) {
+            dispatch(deleteOrder(order._id));
+          }
+     };
     return (
     <div>
       <h1>Orders</h1>
+      {loadingDelete &&  <Loading></Loading>}
+      {errorDelete && <MessageBox variant="danger">{errorDelete}</MessageBox>}
       {loading ? (
         <Loading></Loading>
       ) : error ? (

@@ -5,7 +5,7 @@ import { isAdmin, isAuth } from '../utils.js';
 
 const orderRouter = express.Router();
 
-  orderRouter.get(  //fetch order list for admin
+orderRouter.get(  //fetch order list for admin
   '/',
   isAuth,
   isAdmin,
@@ -73,6 +73,21 @@ orderRouter.put(
       };
       const updatedOrder = await order.save();
       res.send({ message: 'Order Paid', order: updatedOrder });
+    } else {
+      res.status(404).send({ message: 'Order Not Found' });
+    }
+  })
+);
+
+orderRouter.delete( // delete order list
+  '/:id',
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const order = await Order.findById(req.params.id);
+    if (order) {
+      const deleteOrder = await order.remove();
+      res.send({ message: 'Order Deleted', order: deleteOrder });
     } else {
       res.status(404).send({ message: 'Order Not Found' });
     }
