@@ -4,7 +4,7 @@ import { cardReducer } from '../Reducers/CartReducers';
 import { orderDeliverReducer, orderDetailReducer, orderListDeleteReducer, orderlistReducer, orderMineListReducer, orderPayReducer, orderReducer } from '../Reducers/OrderReducer';
 
 import { productCreateReducer, productDeleteReducer, productDetailsReducer, productListReducer, productUpdateReducer } from '../Reducers/productsReducer';
-import { deleteUserReducer, listUserReducer, registrationReducers, userDetailsReducer, userReducers, userUpdateProfileReducer } from '../Reducers/userReducers';
+import { deleteUserReducer, listUserReducer, registrationReducers, userDetailsReducer, userReducers, userUpdateProfileReducer, userUpdateReducer } from '../Reducers/userReducers';
 
 const initialState = {
     userSignin:{
@@ -30,6 +30,7 @@ const reducer = combineReducers({
     orderMineList: orderMineListReducer,
     userDetails: userDetailsReducer,
     userUpdateProfile: userUpdateProfileReducer,
+    userUpdate: userUpdateReducer,
     productCreate: productCreateReducer,
     productUpdate: productUpdateReducer,
     productDelete: productDeleteReducer,
