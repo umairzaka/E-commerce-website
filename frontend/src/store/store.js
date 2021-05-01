@@ -4,7 +4,7 @@ import { cardReducer } from '../Reducers/CartReducers';
 import { orderDeliverReducer, orderDetailReducer, orderListDeleteReducer, orderlistReducer, orderMineListReducer, orderPayReducer, orderReducer } from '../Reducers/OrderReducer';
 
 import { productCreateReducer, productDeleteReducer, productDetailsReducer, productListReducer, productUpdateReducer } from '../Reducers/productsReducer';
-import { listUserReducer, registrationReducers, userDetailsReducer, userReducers, userUpdateProfileReducer } from '../Reducers/userReducers';
+import { deleteUserReducer, listUserReducer, registrationReducers, userDetailsReducer, userReducers, userUpdateProfileReducer } from '../Reducers/userReducers';
 
 const initialState = {
     userSignin:{
@@ -37,6 +37,7 @@ const reducer = combineReducers({
     orderDelete:orderListDeleteReducer,
     orderDeliver: orderDeliverReducer,
     userList: listUserReducer,
+    userDelete: deleteUserReducer,
    
 })
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose ;
