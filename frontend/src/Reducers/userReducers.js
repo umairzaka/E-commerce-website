@@ -1,4 +1,4 @@
-import { USER_DETAILS_FAIL, USER_DETAILS_REQUEST, USER_DETAILS_SUCCESS, USER_LOGOUT, USER_REGISTRATION_FAIL, USER_REGISTRATION_REQUEST, USER_REGISTRATION_SUCCESS, USER_SIGNIN_FAIL, USER_SIGNIN_REQUEST, USER_SIGNIN_SUCCESS,  USER_UPDATE_PROFILE_FAIL,  USER_UPDATE_PROFILE_REQUEST,  USER_UPDATE_PROFILE_RESET,  USER_UPDATE_PROFILE_SUCCESS} from "../constants/userConstants";
+import { USER_DETAILS_FAIL, USER_DETAILS_REQUEST, USER_DETAILS_SUCCESS, USER_LIST_FAIL, USER_LIST_REQUEST, USER_LIST_SUCCESS, USER_LOGOUT, USER_REGISTRATION_FAIL, USER_REGISTRATION_REQUEST, USER_REGISTRATION_SUCCESS, USER_SIGNIN_FAIL, USER_SIGNIN_REQUEST, USER_SIGNIN_SUCCESS,  USER_UPDATE_PROFILE_FAIL,  USER_UPDATE_PROFILE_REQUEST,  USER_UPDATE_PROFILE_RESET,  USER_UPDATE_PROFILE_SUCCESS} from "../constants/userConstants";
 
 //  ..........................registration ........
 
@@ -67,3 +67,18 @@ export const userUpdateProfileReducer = (state = {}, action) => {
       return state;
   }
 };
+
+// fetch user list for admin  
+
+export const listUserReducer = (state={ loading: true }, action) => {
+  switch (action.type) {
+    case USER_LIST_REQUEST: 
+      return{loading:true}
+    case USER_LIST_SUCCESS:
+      return{loading:false , users:action.payload}
+    case USER_LIST_FAIL:
+      return {loading :false , error:action.payload}
+    default:
+      return state
+  }
+}
