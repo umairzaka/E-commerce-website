@@ -12,6 +12,7 @@ export const addToCard = (productId, qty) => async (dispatch, getState)=> {
             price:data.price,
             countInStock:data.countInStock,
             product:data._id,
+            seller: data.seller,
             qty
         }
     })

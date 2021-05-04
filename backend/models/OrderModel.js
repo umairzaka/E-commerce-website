@@ -38,6 +38,10 @@ const orderSchema = new mongoose.Schema(
                 ref:'Users',
                 require :true
             },
+        seller: { 
+            type: mongoose.Schema.Types.ObjectId,
+             ref: 'User' 
+            },
         isPaid : {type:Boolean, require : true},  
         paidAt : {type: Date},  
         isDelivered : {type:Boolean, require : true},  

@@ -2,12 +2,14 @@ import express from 'express'
 import expressAsyncHandler from 'express-async-handler';
 import data from '../Data.js';
 import Products from '../models/ProductsModel.js';
-import { isAdmin, isAuth } from '../utils.js';
+import { isAdmin, isAuth, isSellerOrAdmin } from '../utils.js';
 
 const productRouter = express.Router();
 
 productRouter.get('/' , expressAsyncHandler(async(req,res) =>  {   //  ... api/products/   for fetch all product data and show on frontend
-    const product = await Products.find({}) 
+    const seller = req.query.seller || '';
+    const sellerFilter = seller ? { seller } : {};
+    const product = await Products.find({ ...sellerFilter });
     res.send(product)
 }))
 
@@ -32,10 +34,11 @@ productRouter.get('/:id' , expressAsyncHandler (  async (req,res)=> {      // ..
 productRouter.post( // api for create product 
   '/',
   isAuth,
-  isAdmin,
+  isSellerOrAdmin,
   expressAsyncHandler(async (req, res) => {
     const product = new Products({
       name: 'samle name ' + Date.now(),
+      seller: req.user._id,
       image: '/images/p1.jpg',
       price: 0,
       category: 'sample category',
@@ -55,7 +58,7 @@ productRouter.post( // api for create product
 productRouter.put(
   '/:id',
   isAuth,
-  isAdmin,
+  isSellerOrAdmin,
   expressAsyncHandler(async (req, res) => {
     const productId = req.params.id;
     const product = await Products.findById(productId);
