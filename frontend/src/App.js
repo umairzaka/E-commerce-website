@@ -22,6 +22,7 @@ import OrderlistScreen from "./screens/OrderlistScreen";
 import UsersScreen from "./screens/UsersScreen";
 import EditUserScreen from "./screens/EditUserScreen";
 import SellerRoute from "./components/SellerRoute";
+import SellerScreen from "./screens/SellerScreen";
 
 
 
@@ -119,6 +120,7 @@ function App() {
         </div>
       </header>
       <main>
+          <Route path="/seller/:id" component={SellerScreen}></Route>
           <Route path='/cart/:id?' component={CartScreen}/>
           <Route path='/products/:id' component={ProductScreen}/>
           <Route path='/signin' component={SignScreen}/>

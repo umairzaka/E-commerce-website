@@ -1,6 +1,7 @@
 import express from 'express'
 import expressAsyncHandler from 'express-async-handler';
 import Order from '../models/OrderModel.js';
+import User from '../models/UserModel.js';
 import { isAdmin, isAuth, isSellerOrAdmin } from '../utils.js';
 
 const orderRouter = express.Router();
@@ -20,6 +21,15 @@ orderRouter.get(  //fetch order list for admin
     res.send(orders);
   })
 );
+// orderRouter.get(
+//   '/',
+//   isAuth,
+//   isAdmin,
+//   expressAsyncHandler(async (req, res) => {
+//     const orders = await Order.find({}).populate('user', 'name');
+//     res.send(orders);
+//   })
+// );
 
 
 orderRouter.get(  // for spacific user own order
@@ -38,7 +48,7 @@ orderRouter.post('/' , isAuth, expressAsyncHandler(async(req,res)=> {
         res.status(400).send({message: 'cart is emapty'})
     } else {
         const order = new Order({
-            seller: req.body.orderItems[0].seller,
+            seller: req.body.orderItem[0].seller,
             orderItem:req.body.orderItem,
             shippingAddress:req.body.shippingAddress,
             paymentMethod:req.body.paymentMethod.paymentMethod,

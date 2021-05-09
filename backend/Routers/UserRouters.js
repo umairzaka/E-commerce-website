@@ -7,6 +7,16 @@ import { generateToken, isAdmin, isAuth } from '../utils.js';
 
 const userRouter = express.Router();
 
+userRouter.get(
+  '/top-sellers',
+  expressAsyncHandler(async (req, res) => {
+    const topSellers = await User.find({ isSeller: true })
+      .sort({ 'seller.rating': -1 })
+      .limit(3);
+    res.send(topSellers);
+  })
+);
+
 userRouter.get('/seed' , expressAsyncHandler( async (req, res) => {
     // await User.deleteMany({})
     const CrestedUser = await User.insertMany(data.users)
@@ -90,7 +100,7 @@ userRouter.put(
         name: updatedUser.name,
         email: updatedUser.email,
         isAdmin: updatedUser.isAdmin,
-        sSeller: user.isSeller,
+        isSeller: user.isSeller,
         token: generateToken(updatedUser),
       });
     }

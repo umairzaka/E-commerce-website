@@ -47,7 +47,9 @@ function ShippingScreen(props) {
             value={fullName}
             onChange={(e) => setFullName(e.target.value)}
             required
-          ></input>
+          />
+
+          
         </div>
         <div>
           <label htmlFor="address">Address</label>

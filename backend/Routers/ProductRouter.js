@@ -9,7 +9,7 @@ const productRouter = express.Router();
 productRouter.get('/' , expressAsyncHandler(async(req,res) =>  {   //  ... api/products/   for fetch all product data and show on frontend
     const seller = req.query.seller || '';
     const sellerFilter = seller ? { seller } : {};
-    const product = await Products.find({ ...sellerFilter });
+     const product = await Products.find({ ...sellerFilter })
     res.send(product)
 }))
 
@@ -22,7 +22,10 @@ productRouter.get('/seed', expressAsyncHandler(async(req,res) => {    // ... api
 
 
 productRouter.get('/:id' , expressAsyncHandler (  async (req,res)=> {      // ... api/products/:id    for product detail
-    const product = await Products.findById(req.params.id)
+   const product = await Products.findById(req.params.id).populate(
+      'seller',
+      'seller.name seller.logo seller.rating seller.numReviews'
+    );
     if (product) {
         res.send(product);
     } else {

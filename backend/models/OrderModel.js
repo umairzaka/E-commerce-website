@@ -35,7 +35,7 @@ const orderSchema = new mongoose.Schema(
         totalPrice : {type: Number , require: true},
         user: {
                 type: mongoose.Schema.Types.ObjectId,
-                ref:'Users',
+                ref:'User',
                 require :true
             },
         seller: { 
@@ -54,4 +54,4 @@ const orderSchema = new mongoose.Schema(
 
 const Order = mongoose.model('Order', orderSchema)
 
-export default Order
+export default Order;
